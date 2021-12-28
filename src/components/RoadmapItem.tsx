@@ -25,7 +25,7 @@ const RoadmapItemText = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 22rem;
+  width: 30%;
 `
 type Props = {
   title: string
