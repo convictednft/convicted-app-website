@@ -5,11 +5,9 @@ import Navbar from "../components/Navbar"
 // @ts-ignore
 import BackgroundImage from '../images/main_bg.png'
 // @ts-ignore
-import WeaponPmImage from '../images/pm.png'
-// @ts-ignore
 import CharImage from '../images/char1.png'
 // @ts-ignore
-import KnifeImage from '../images/knife.png'
+import WeaponsImage from '../images/weapons.png'
 // @ts-ignore
 import KnucklesImage from '../images/knuckles.png'
 // @ts-ignore
@@ -24,6 +22,10 @@ import KitchenImage from '../images/kitchen.png'
 import TattooImage from '../images/web.png'
 // @ts-ignore
 import LogoImage from '../images/logo.png'
+// @ts-ignore
+import SchemaImage from '../images/schema.png'
+// @ts-ignore
+import CurrencyImage from '../images/currency.png'
 import AvailableFeatureItem from "../components/AvailableFeatureItem"
 import RoadmapItem from "../components/RoadmapItem"
 import { Link } from "gatsby"
@@ -89,11 +91,41 @@ const Char = styled.div`
   background-size: contain;
 `
 
+const Weapons = styled.div`
+  background-image: url(${WeaponsImage});
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: left;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+`
+
+const Schematic = styled.div`
+  background-image: url(${SchemaImage});
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+`
+
+const Currency = styled.div`
+  background-image: url(${CurrencyImage});
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+`
+
 const FooterContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 15rem 2rem 0 2rem;
+  margin: 15rem 2rem 3rem 2rem;
 `
 
 const Logo = styled.img`
@@ -123,6 +155,7 @@ const FooterTitle = styled.div<{capitalize?: boolean}>`
   text-align: left;
   text-transform: ${({ capitalize }) => !capitalize ? 'uppercase' : 'capitalize'};
   color: white;
+  margin-bottom: 0.5rem;
 `
 
 const FooterLink = styled(Link)<{capitalize?: boolean}>`
@@ -131,6 +164,7 @@ const FooterLink = styled(Link)<{capitalize?: boolean}>`
   font-style: normal;
   font-weight: 350;
   line-height: 1.5rem;
+  margin-bottom: 0.5rem;
   letter-spacing: 0em;
   text-align: left;
   text-transform: ${({ capitalize }) => !capitalize ? 'uppercase' : 'capitalize'};
@@ -171,8 +205,8 @@ const Container = styled.div`
   justify-content: stretch;
 `
 
-const ContentContainer = styled.div`
-  max-width: 1328px;
+const ContentContainer = styled.div<{ wider?: boolean }>`
+  max-width: ${({ wider }) => wider ? '1328px' : '1120px'};
 `
 
 const IndexPage = () => {
@@ -185,7 +219,7 @@ const IndexPage = () => {
       </Background>
       <Container>
         <ContentContainer>
-          <FeatureBlock style={{ paddingTop: '2rem' }}>
+          <FeatureBlock style={{ paddingTop: '2rem', marginTop: '6.375rem' }}>
             <FeatureElement style={{ paddingRight: '5rem', justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <FeatureTitle>Convicted</FeatureTitle>
@@ -206,15 +240,16 @@ const IndexPage = () => {
               <Char />
             </FeatureElement>
           </FeatureBlock>
-          <FeatureBlock>
+          <FeatureBlock style={{ marginTop: '7.75rem' }}>
             <FeatureElement
               style={{
-                minHeight: '48rem',
+                minHeight: '40rem',
                 position: 'relative',
               }}
             >
+              <Weapons />
             </FeatureElement>
-            <FeatureElement style={{ paddingTop: '2rem' }}>
+            <FeatureElement style={{ paddingTop: '2rem', paddingLeft: '4.56rem' }}>
               <FeatureTitle>About the technical side of the game</FeatureTitle>
               <p>Convicted is an NFT game built on blockchain technology. We use Binance Smart Chain and we want to prove that a good crypto game can easily exist on this blockchain.</p>
 
@@ -230,8 +265,8 @@ const IndexPage = () => {
               <p><b>4. Creation of the first NFT game with customization</b><br />In our game, in addition to NFT items that give bonuses, there will be regular character skins and illustrations.</p>
             </FeatureElement>
           </FeatureBlock>
-          <FeatureBlock>
-            <FeatureElement style={{ paddingTop: '2rem' }}>
+          <FeatureBlock style={{ marginTop: '7.625rem' }}>
+            <FeatureElement style={{ paddingRight: '4.625rem' }}>
               <FeatureTitle>Game economic</FeatureTitle>
               <p>There are three economic currencies in the game: "Rubles", "Cigarettes", "Food", as well as two resources: "Authority", "Energy" and one indicator "Level".</p>
               <p>All these parameters will interact with each other and create an economic balance. Each currency will be tied to a specific token: Ruble, Cigarettes and Food corresponds to tokens: CRUB (Ruble), CCIG (Cigarettes), CFOD (Food).</p>
@@ -239,21 +274,23 @@ const IndexPage = () => {
             </FeatureElement>
             <FeatureElement
               style={{
-                minHeight: '48rem',
+                minHeight: '26rem',
                 position: 'relative',
               }}
             >
+              <Schematic />
             </FeatureElement>
           </FeatureBlock>
-          <FeatureBlock>
+          <FeatureBlock style={{ marginTop: '8.875rem' }}>
             <FeatureElement
               style={{
-                minHeight: '48rem',
+                minHeight: '23rem',
                 position: 'relative',
               }}
             >
+              <Currency />
             </FeatureElement>
-            <FeatureElement style={{ paddingTop: '2rem' }}>
+            <FeatureElement style={{ paddingLeft: '7.625rem' }}>
               <FeatureTitle>Mining currency</FeatureTitle>
               <p>To mine tokens, you will need to purchase one or several NFTs. They are of 3 types: Weapon, Crime, Chef certificate.</p>
 
@@ -272,7 +309,9 @@ const IndexPage = () => {
 
             </FeatureElement>
           </FeatureBlock>
-          <FeatureTitle style={{ textAlign: 'center' }}>Features available in the game</FeatureTitle>
+        </ContentContainer>
+        <ContentContainer wider>
+          <FeatureTitle style={{ textAlign: 'center', marginTop: '10.625rem', marginBottom: '3.25rem' }}>Features available in the game</FeatureTitle>
           <AvailableFeatureContainer>
             <AvailableFeatureItem
               src={KnucklesImage}
@@ -306,7 +345,7 @@ const IndexPage = () => {
             />
           </AvailableFeatureContainer>
           <FeatureTitle style={{ textAlign: 'center', marginTop: '10rem' }}>Roadmap</FeatureTitle>
-          <RoadmapContainer>
+          <RoadmapContainer style={{ marginTop: '3rem' }}>
             <RoadmapItem
               margin="0 2rem 0 0"
               title="Stage 1 (End of Q4 2021)"
@@ -360,12 +399,12 @@ const IndexPage = () => {
             </FooterColumn>
             <FooterColumn>
               <SocialLinksRow />
-              <FooterColumn>
-                <FooterTitle capitalize style={{ marginTop: '1rem' }}>Support</FooterTitle>
+              <FooterColumn style={{ marginLeft: '0.5rem' }}>
+                <FooterTitle capitalize style={{ marginTop: '0.75rem', marginBottom: 0 }}>Support</FooterTitle>
                 <FooterHrefLink href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</FooterHrefLink>
-                <FooterTitle capitalize style={{ marginTop: '1rem' }}>Partnerships</FooterTitle>
+                <FooterTitle capitalize style={{ marginTop: '0.75rem', marginBottom: 0 }}>Partnerships</FooterTitle>
                 <FooterHrefLink href={`mailto:${PARTNERSHIPS_EMAIL}`}>{PARTNERSHIPS_EMAIL}</FooterHrefLink>
-                <FooterTitle capitalize style={{ marginTop: '1rem' }}>Investments</FooterTitle>
+                <FooterTitle capitalize style={{ marginTop: '0.75rem', marginBottom: 0 }}>Investments</FooterTitle>
                 <FooterHrefLink href={`mailto:${INVESTMENTS_EMAIL}`}>{INVESTMENTS_EMAIL}</FooterHrefLink>
               </FooterColumn>
             </FooterColumn>
