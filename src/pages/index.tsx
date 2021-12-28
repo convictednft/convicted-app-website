@@ -101,6 +101,7 @@ const FeatureTitle = styled.div`
   letter-spacing: 0em;
   text-align: left;
   color: #F2F2F2;
+  margin-bottom: 1rem;
 
   @media(max-width: 768px) {
     text-align: center;
