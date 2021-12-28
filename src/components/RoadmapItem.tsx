@@ -20,12 +20,14 @@ const RoadmapItemText = styled.div`
   line-height: 1.5rem;
   text-align: center;
   color: #C2C2C2;
+  margin-top: 1rem;
 `
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 32%;
+  padding: 0 1rem;
 `
 type Props = {
   title: string
