@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 const AvailableFeature = styled.div`
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(67, 67, 67);
+  background-color: rgb(9, 9, 9);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   width: 21.875rem;
   border-radius: 4px;
   margin: 1.5625rem 1rem 1.5625rem 1rem;
@@ -14,23 +16,25 @@ const AvailableFeature = styled.div`
 `
 
 const AvailableFeatureTitle = styled.div`
-  font-family: 'Circe', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 1.75rem;
+  font-family: 'Circe', sans-serif;
+  font-size: 1.375rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 2.125rem;
+  line-height: 1.5rem;
   letter-spacing: 0em;
   color: #F2F2F2;
   text-align: center;
   text-transform: uppercase;
+  margin-top: 1rem;
 `
 
 const AvailableFeatureDescription = styled.div`
-  font-family: 'Circe', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Circe', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1.125rem;
   line-height: 1.5rem;
+  margin-top: 0.75rem;
   color: #C2C2C2;
 `
 
@@ -38,13 +42,16 @@ type AvailableFeatureItemProps = {
   title: string
   description: string
   src: any
+  titleMargin?: string
+  imageHeight?: string
+  imageWidth?: string
 }
 
 const AvailableFeatureItem = (props: AvailableFeatureItemProps) => {
   return (
     <AvailableFeature>
-      <img src={props.src} />
-      <AvailableFeatureTitle>{props.title}</AvailableFeatureTitle>
+      <img src={props.src} style={{ width: props.imageWidth, height: props.imageHeight }} />
+      <AvailableFeatureTitle style={{ marginTop: props.titleMargin }}>{props.title}</AvailableFeatureTitle>
       <AvailableFeatureDescription>{props.description}</AvailableFeatureDescription>
     </AvailableFeature>
   )
