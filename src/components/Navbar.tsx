@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 // @ts-ignore
@@ -12,7 +13,7 @@ const RowContainer = styled.div`
   display: flex;
 `
 
-const LinkItem = styled.a`
+const LinkItem = styled(Link)`
   color: white;
   font-family: Circe, sans-serif;
   font-size: 1rem;
@@ -27,18 +28,18 @@ const Navbar = () => {
   return (
     <Container>
       <RowContainer>
-        <LinkItem href="/">
+        <LinkItem to="/">
           <img src={Logo} style={{ width: '2rem', height: '2rem' }} />
         </LinkItem>
-        <LinkItem href="/about">About</LinkItem>
-        <LinkItem href="/roadmap">Roadmap</LinkItem>
-        <LinkItem href="/whitepaper">Whitepaper</LinkItem>
-        <LinkItem>Staking</LinkItem>
-        <LinkItem>Liquidity</LinkItem>
+        <LinkItem to="/about">About</LinkItem>
+        <LinkItem to="/roadmap">Roadmap</LinkItem>
+        <LinkItem to="/whitepaper">Whitepaper</LinkItem>
+        <LinkItem to="/staking">Staking</LinkItem>
+        <LinkItem to="/liquidity">Liquidity</LinkItem>
       </RowContainer>
       <RowContainer>
-        <LinkItem>Marketplace</LinkItem>
-        <LinkItem>Play and earn</LinkItem>
+        <LinkItem to="/marketplace">Marketplace</LinkItem>
+        <LinkItem to="/earn">Play and earn</LinkItem>
       </RowContainer>
     </Container>
   )
