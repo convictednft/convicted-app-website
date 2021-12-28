@@ -31,6 +31,7 @@ import RoadmapItem from "../components/RoadmapItem"
 import { Link } from "gatsby"
 import SocialLinksRow from "../components/SocialLinksRow"
 import { INVESTMENTS_EMAIL, PARTNERSHIPS_EMAIL, SUPPORT_EMAIL } from "../constants"
+import { useMedia } from "react-use"
 
 const AvailableFeatureContainer = styled.div`
   display: flex;
@@ -58,7 +59,6 @@ const Background = styled.div`
   background-size: contain;
   background-position-x: center;
   width: 100%;
-
   @media(max-width: 768px) {
     height: 40vh;
     background-size: cover;
@@ -274,13 +274,33 @@ const ContentContainer = styled.div<{ wider?: boolean }>`
   max-width: ${({ wider }) => wider ? '1328px' : '1120px'};
 `
 
+const LinkButton = styled(Link)<{ borderColor?: string, color?: string, backgroundColor?: string }>`
+  background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
+  color: ${({ color }) => color || 'white'};
+  border: ${({ borderColor }) => `1px solid ${borderColor || 'white'}`};
+  padding: 0.5rem 1rem 0.325rem 1rem;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  vertical-align: middle;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:visited {
+    text-decoration: none;
+    color: ${({ color }) => color};
+  }
+  &:hover {
+    color: ${({ color }) => color};
+  }
+`
+
 const IndexPage = () => {
+  const isMobile = useMedia('(max-width: 768px)');
+
   return (
     <Layout>
+      { isMobile ? <Navbar /> : null }
       <Background>
-        <Container>
-          <Navbar />
-        </Container>
+        { !isMobile ? <Navbar /> : null }
       </Background>
       <Container>
         <ContentContainer>
@@ -336,6 +356,9 @@ const IndexPage = () => {
               <p>There are three economic currencies in the game: "Rubles", "Cigarettes", "Food", as well as two resources: "Authority", "Energy" and one indicator "Level".</p>
               <p>All these parameters will interact with each other and create an economic balance. Each currency will be tied to a specific token: Ruble, Cigarettes and Food corresponds to tokens: CRUB (Ruble), CCIG (Cigarettes), CFOD (Food).</p>
               <p>Thus, you can not only mine the game currency you need using NFT, but also buy from the market.</p>
+              <div style={{ paddingTop: '1rem' }}>
+                <LinkButton borderColor="rgb(60, 60, 60)" color="white" backgroundColor="rgb(20, 20, 20)" to="/whitepaper">White paper</LinkButton>
+              </div>
             </FeatureElement>
             <FeatureElement
               style={{

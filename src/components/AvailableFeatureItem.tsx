@@ -11,8 +11,11 @@ const AvailableFeature = styled.div`
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   width: 21.875rem;
   border-radius: 4px;
-  margin: 1.5625rem 1rem 1.5625rem 1rem;
+  margin: 1.5625rem 1rem;
   max-height: 27.6825rem;
+  @media(max-width: 768px) {
+    margin: 1rem 0;
+  }
 `
 
 const AvailableFeatureTitle = styled.div`

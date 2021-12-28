@@ -1,18 +1,19 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import { useMedia } from 'react-use'
+import { Nav, Navbar, Container } from 'react-bootstrap'
 // @ts-ignore
 import Logo from '../images/logo.png'
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1920px;
-`
-
-const RowContainer = styled.div`
-  display: flex;
+const HighlightLinkItem = styled.div<{ color?: string, bordered?: boolean, backgroundColor?: string }>`
+  background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
+  color: ${({ color }) => color || 'white'};
+  border: ${({ bordered, color }) => bordered ? `1px solid ${color || 'white'}` : 'none'};
+  padding: 0.5rem 1rem 0.325rem 1rem;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  vertical-align: middle;
 `
 
 const LinkItem = styled(Link)`
@@ -24,27 +25,83 @@ const LinkItem = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;
+  &:hover {
+    color: white;
+  }
+  @media(max-width: 768px) {
+    justify-content: center;
+  }
 `
 
-const Navbar = () => {
+const LogoContainer = styled.div`
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+`
+
+function NavbarMenu() {
+  const isWide = useMedia('(min-width: 769px)');
+  const isMobile = useMedia('(max-width: 768px)');
   return (
-    <Container>
-      <RowContainer>
-        <LinkItem to="/">
-          <img src={Logo} style={{ width: '2rem', height: '2rem' }} />
-        </LinkItem>
-        <LinkItem to="/about">About</LinkItem>
-        <LinkItem to="/roadmap">Roadmap</LinkItem>
-        <LinkItem to="/whitepaper">Whitepaper</LinkItem>
-        <LinkItem to="/staking">Staking</LinkItem>
-        <LinkItem to="/liquidity">Liquidity</LinkItem>
-      </RowContainer>
-      <RowContainer>
-        <LinkItem to="/marketplace">Marketplace</LinkItem>
-        <LinkItem to="/earn">Play and earn</LinkItem>
-      </RowContainer>
-    </Container>
+    <Navbar
+      collapseOnSelect
+      style={{
+        alignItems: isMobile ? 'center' : 'flex-start',
+        paddingTop: 0,
+        backgroundColor: isMobile ? 'black' : 'transparent',
+      }}
+      expand="sm"
+      variant="dark"
+      sticky="top"
+    >
+      <Container>
+        <Navbar.Brand>
+          <LogoContainer>
+            <img src={Logo} style={{ width: '2rem', height: '2rem' }} />
+          </LogoContainer>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" className="align-items-center order-md-1">
+          <Nav className="me-auto">
+            <LinkItem to="/about">About</LinkItem>
+            <LinkItem to="/roadmap">Roadmap</LinkItem>
+            <LinkItem to="/whitepaper">Whitepaper</LinkItem>
+            <LinkItem to="/staking">Staking</LinkItem>
+            <LinkItem to="/liquidity">Liquidity</LinkItem>
+          </Nav>
+          <Nav>
+            <LinkItem to="/marketplace">
+              <HighlightLinkItem bordered color="#B6B6B6" backgroundColor="rgba(47, 47, 47, 0.6)">Marketplace</HighlightLinkItem>
+            </LinkItem>
+            <LinkItem to="/earn">
+              <HighlightLinkItem bordered color="#FC6805" backgroundColor="rgba(230, 74, 38, 0.3)">Play and earn</HighlightLinkItem>
+            </LinkItem>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 
-export default Navbar
+// const Navbar = () => {
+//   return (
+//     <Container>
+//       <RowContainer>
+//         <LinkItem to="/">
+//           <img src={Logo} style={{ width: '2rem', height: '2rem' }} />
+//         </LinkItem>
+//         <LinkItem to="/about">About</LinkItem>
+//         <LinkItem to="/roadmap">Roadmap</LinkItem>
+//         <LinkItem to="/whitepaper">Whitepaper</LinkItem>
+//         <LinkItem to="/staking">Staking</LinkItem>
+//         <LinkItem to="/liquidity">Liquidity</LinkItem>
+//       </RowContainer>
+//       <RowContainer>
+//         <LinkItem to="/marketplace">Marketplace</LinkItem>
+//         <LinkItem to="/earn">Play and earn</LinkItem>
+//       </RowContainer>
+//     </Container>
+//   )
+// }
+
+export default NavbarMenu
