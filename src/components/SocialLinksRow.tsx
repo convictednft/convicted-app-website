@@ -14,6 +14,11 @@ import { DISCORD_LINK, FACEBOOK_LINK, GITHUB_LINK, TELEGRAM_LINK, TWITTER_LINK }
 
 const Container = styled.div`
   display: flex;
+
+  @media(max-width: 768px) {
+    justify-content: center;
+    margin: 1rem 0;
+  }
 `
 
 const SocialLink = styled.a<{ last?: boolean }>`

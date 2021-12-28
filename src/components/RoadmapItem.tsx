@@ -28,6 +28,11 @@ const Container = styled.div`
   flex-direction: column;
   width: 32%;
   padding: 0 1rem;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    margin-top: 2rem;
+  }
 `
 type Props = {
   title: string

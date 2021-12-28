@@ -43,6 +43,11 @@ const RoadmapContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 3rem;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
 `
 
 const Background = styled.div`
@@ -53,6 +58,11 @@ const Background = styled.div`
   background-size: cover;
   background-position: center;
   width: 100%;
+
+  @media(max-width: 768px) {
+    height: 40vh;
+    background-size: cover;
+  }
 `
 
 const FeatureBlock = styled.div`
@@ -65,10 +75,21 @@ const FeatureBlock = styled.div`
   letter-spacing: 0em;
   text-align: left;
   color: #ADADAD;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    margin-top: 1rem !important;
+  }
 `
 
-const FeatureElement = styled.div`
+const FeatureElement = styled.div<{ padding?: string }>`
   width: 50%;
+  padding: ${({ padding }) => padding || '0'};
+
+  @media(max-width: 768px) {
+    width: 100%;
+    padding: 0;
+  }
 `
 
 const FeatureTitle = styled.div`
@@ -80,6 +101,11 @@ const FeatureTitle = styled.div`
   letter-spacing: 0em;
   text-align: left;
   color: #F2F2F2;
+
+  @media(max-width: 768px) {
+    text-align: center;
+    margin-top: 2rem !important;
+  }
 `
 
 const Char = styled.div`
@@ -90,16 +116,26 @@ const Char = styled.div`
   height: 100%;
   width: 100%;
   background-size: contain;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 const Weapons = styled.div`
   background-image: url(${WeaponsImage});
   background-repeat: no-repeat;
   background-color: black;
-  background-position: left;
+  background-position: center;
   height: 100%;
   width: 100%;
   background-size: contain;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    min-height: 80vh;
+  }
 `
 
 const Schematic = styled.div`
@@ -110,6 +146,11 @@ const Schematic = styled.div`
   height: 100%;
   width: 100%;
   background-size: contain;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    min-height: 80vh;
+  }
 `
 
 const Currency = styled.div`
@@ -120,6 +161,11 @@ const Currency = styled.div`
   height: 100%;
   width: 100%;
   background-size: contain;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    min-height: 80vh;
+  }
 `
 
 const FooterContainer = styled.div`
@@ -127,6 +173,12 @@ const FooterContainer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   margin: 15rem 2rem 3rem 2rem;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    margin: 0 0 3rem 0;
+    align-items: center;
+  }
 `
 
 const Logo = styled.img`
@@ -156,6 +208,11 @@ const FooterTitle = styled.div<{capitalize?: boolean}>`
   text-transform: ${({ capitalize }) => !capitalize ? 'uppercase' : 'capitalize'};
   color: white;
   margin-bottom: 0.5rem;
+
+  @media(max-width: 768px) {
+    text-align: center;
+    margin-top: 1rem;
+  }
 `
 
 const FooterLink = styled(Link)<{capitalize?: boolean}>`
@@ -174,6 +231,10 @@ const FooterLink = styled(Link)<{capitalize?: boolean}>`
     text-decoration: none;
     color: #B0B0B0;
   }
+
+  @media(max-width: 768px) {
+    text-align: center;
+  }
 `
 
 const FooterHrefLink = styled.a<{capitalize?: boolean}>`
@@ -189,6 +250,10 @@ const FooterHrefLink = styled.a<{capitalize?: boolean}>`
   &:visited {
     text-decoration: none;
     color: #B0B0B0;
+  }
+
+  @media(max-width: 768px) {
+    text-align: center;
   }
 `
 
@@ -220,7 +285,7 @@ const IndexPage = () => {
       <Container>
         <ContentContainer>
           <FeatureBlock style={{ paddingTop: '2rem', marginTop: '6.375rem' }}>
-            <FeatureElement style={{ paddingRight: '5rem', justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
+            <FeatureElement padding="0 5rem 0 0" style={{ justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <FeatureTitle>Convicted</FeatureTitle>
                 <p>You go to prison as an ordinary kid. In order to survive in these difficult conditions, you have to fight for the right to life. Fight with other prisoners and if you win you get a well-deserved reward - a cigarette. If you are strong in cooking, go to the kitchen and cook food. Start your journey of roofing business, conquering one prison after another.</p>
@@ -249,7 +314,7 @@ const IndexPage = () => {
             >
               <Weapons />
             </FeatureElement>
-            <FeatureElement style={{ paddingTop: '2rem'}}>
+            <FeatureElement padding="2rem 0 0 0">
               <FeatureTitle>About the technical side of the game</FeatureTitle>
               <p>Convicted is an NFT game built on blockchain technology. We use Binance Smart Chain and we want to prove that a good crypto game can easily exist on this blockchain.</p>
 
@@ -266,7 +331,7 @@ const IndexPage = () => {
             </FeatureElement>
           </FeatureBlock>
           <FeatureBlock style={{ marginTop: '7.625rem' }}>
-            <FeatureElement style={{ paddingRight: '5rem' }}>
+            <FeatureElement padding="0 5rem 0 0">
               <FeatureTitle>Game economic</FeatureTitle>
               <p>There are three economic currencies in the game: "Rubles", "Cigarettes", "Food", as well as two resources: "Authority", "Energy" and one indicator "Level".</p>
               <p>All these parameters will interact with each other and create an economic balance. Each currency will be tied to a specific token: Ruble, Cigarettes and Food corresponds to tokens: CRUB (Ruble), CCIG (Cigarettes), CFOD (Food).</p>
@@ -290,7 +355,7 @@ const IndexPage = () => {
             >
               <Currency />
             </FeatureElement>
-            <FeatureElement style={{ paddingLeft: '2.75rem' }}>
+            <FeatureElement padding="0 0 0 2.75rem">
               <FeatureTitle>Mining currency</FeatureTitle>
               <p>To mine tokens, you will need to purchase one or several NFTs. They are of 3 types: Weapon, Crime, Chef certificate.</p>
 
