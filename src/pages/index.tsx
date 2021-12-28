@@ -42,6 +42,7 @@ const RoadmapContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3rem;
 `
 
 const Background = styled.div`
@@ -71,7 +72,7 @@ const FeatureElement = styled.div`
 `
 
 const FeatureTitle = styled.div`
-  font-family: Century Gothic, sans-serif;
+  font-family: 'Century Gothic', sans-serif;
   font-size: 1.75rem;
   font-style: normal;
   font-weight: 700;
@@ -129,8 +130,7 @@ const FooterContainer = styled.div`
 `
 
 const Logo = styled.img`
-  width: 11.25rem;
-  height: 9rem;
+  height: 11rem;
 `
 
 const Copyright = styled.div`
@@ -249,7 +249,7 @@ const IndexPage = () => {
             >
               <Weapons />
             </FeatureElement>
-            <FeatureElement style={{ paddingTop: '2rem', paddingLeft: '4.56rem' }}>
+            <FeatureElement style={{ paddingTop: '2rem'}}>
               <FeatureTitle>About the technical side of the game</FeatureTitle>
               <p>Convicted is an NFT game built on blockchain technology. We use Binance Smart Chain and we want to prove that a good crypto game can easily exist on this blockchain.</p>
 
@@ -266,7 +266,7 @@ const IndexPage = () => {
             </FeatureElement>
           </FeatureBlock>
           <FeatureBlock style={{ marginTop: '7.625rem' }}>
-            <FeatureElement style={{ paddingRight: '4.625rem' }}>
+            <FeatureElement style={{ paddingRight: '5rem' }}>
               <FeatureTitle>Game economic</FeatureTitle>
               <p>There are three economic currencies in the game: "Rubles", "Cigarettes", "Food", as well as two resources: "Authority", "Energy" and one indicator "Level".</p>
               <p>All these parameters will interact with each other and create an economic balance. Each currency will be tied to a specific token: Ruble, Cigarettes and Food corresponds to tokens: CRUB (Ruble), CCIG (Cigarettes), CFOD (Food).</p>
@@ -290,7 +290,7 @@ const IndexPage = () => {
             >
               <Currency />
             </FeatureElement>
-            <FeatureElement style={{ paddingLeft: '7.625rem' }}>
+            <FeatureElement style={{ paddingLeft: '2.75rem' }}>
               <FeatureTitle>Mining currency</FeatureTitle>
               <p>To mine tokens, you will need to purchase one or several NFTs. They are of 3 types: Weapon, Crime, Chef certificate.</p>
 
@@ -316,38 +316,51 @@ const IndexPage = () => {
             <AvailableFeatureItem
               src={KnucklesImage}
               title="Weapon"
+              imageHeight="14.125rem"
+              titleMargin="3.125rem"
               description="Make single or massive attacks against prison bosses."
             />
             <AvailableFeatureItem
               src={PrisonImage}
               title="Prison"
+              imageHeight="12.375rem"
+              titleMargin="3.125rem"
               description="Go through prisons one by one and take over the prison business."
             />
             <AvailableFeatureItem
               src={KitchenImage}
+              imageHeight="15.375rem"
               title="Kitchen"
+              titleMargin="2.75rem"
               description="If you are a good cook, then send to the kitchen to get “Food”."
             />
             <AvailableFeatureItem
               src={BagImage}
               title="Bag"
+              titleMargin="2.25rem"
+              imageHeight="14rem"
               description="Improve the items in your bag at the expense of “Level” and “Authority”."
             />
             <AvailableFeatureItem
               src={TattooImage}
               title="Tattoo"
+              titleMargin="0"
+              imageHeight="18.5rem"
               description={`Get tattoos to gain the "Authority" in the prison and pump your character.`}
             />
             <AvailableFeatureItem
               src={StampImage}
+              titleMargin="1.625rem"
               title="Stashes"
+              imageWidth="13.625rem"
               description={`Collect various stashes and trade their collections for resources.`}
             />
           </AvailableFeatureContainer>
           <FeatureTitle style={{ textAlign: 'center', marginTop: '10rem' }}>Roadmap</FeatureTitle>
-          <RoadmapContainer style={{ marginTop: '3rem' }}>
+        </ContentContainer>
+        <ContentContainer>
+          <RoadmapContainer>
             <RoadmapItem
-              margin="0 2rem 0 0"
               title="Stage 1 (End of Q4 2021)"
               items={[
                 'Social networking',
@@ -355,7 +368,6 @@ const IndexPage = () => {
               ]}
             />
             <RoadmapItem
-              margin="0 2rem 0 0"
               title="Stage 2 (Q1 2022)"
               items={[
                 'Marketplace launch on BSC Testnet',
