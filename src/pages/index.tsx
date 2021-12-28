@@ -55,8 +55,8 @@ const Background = styled.div`
   height: 100vh;
   background-image: url(${BackgroundImage});
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position-x: center;
   width: 100%;
 
   @media(max-width: 768px) {
@@ -71,7 +71,7 @@ const FeatureBlock = styled.div`
   font-size: 1.375rem;
   font-style: normal;
   font-weight: 350;
-  line-height: 24px;
+  line-height: 1.5rem;
   letter-spacing: 0em;
   text-align: left;
   color: #ADADAD;

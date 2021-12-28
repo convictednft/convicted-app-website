@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  max-width: 1920px;
 `
 
 const RowContainer = styled.div`
