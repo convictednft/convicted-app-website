@@ -30,11 +30,12 @@ const Container = styled.div`
 type Props = {
   title: string
   items: string[]
+  margin?: string
 }
 
 const RoadmapItem = (props: Props) => {
   return (
-    <Container>
+    <Container style={{ margin: props.margin }}>
       <RoadmapTitle>{props.title}</RoadmapTitle>
       {
         props.items.map((item) => (
