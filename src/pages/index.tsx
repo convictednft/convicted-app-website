@@ -54,7 +54,7 @@ const Background = styled.div`
     height: 40vh;
     background-size: cover;
   }
-  @media(min-height: 800px) {
+  @media(min-width: 1920px) {
     min-height: 130vh;
   }
 `
