@@ -572,7 +572,7 @@ const IndexPage = () => {
             </FooterColumn>
             <FooterColumn>
               <SocialLinksRow />
-              <FooterColumn style={{ marginLeft: '0.5rem' }}>
+              <FooterColumn>
                 <FooterTitle capitalize style={{ marginTop: '0.75rem', marginBottom: 0 }}>Support</FooterTitle>
                 <FooterHrefLink href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</FooterHrefLink>
                 <FooterTitle capitalize style={{ marginTop: '0.75rem', marginBottom: 0 }}>Partnerships</FooterTitle>
