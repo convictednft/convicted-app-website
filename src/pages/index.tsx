@@ -54,6 +54,9 @@ const Background = styled.div`
     height: 40vh;
     background-size: cover;
   }
+  @media(min-height: 800px) {
+    min-height: 130vh;
+  }
 `
 
 const FeatureBlock = styled.div`
