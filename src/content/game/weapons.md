@@ -7,4 +7,6 @@ sidebar: true
 ---
 
 
+![Bag](./bag.png)
+
 Weapons are essential part of the game
