@@ -1,4 +1,6 @@
-import * as React from "react"
+// import * as React from "react"
+import React, { useCallback, useEffect, useState  } from 'react';
+
 import styled from "styled-components"
 import Layout from "../components/Layout"
 import Navbar from "../components/Navbar"
@@ -49,14 +51,14 @@ const Background = styled.div`
   background-size: contain;
   background-position-x: center;
   width: 100%;
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   @media(max-width: 768px) {
     height: 40vh;
     padding: 0;
     background-size: cover;
   }
   @media(min-width: 1920px) {
-    padding: 0 4rem;
+
     min-height: 130vh;
   }
 `
@@ -295,10 +297,41 @@ const LinkButton = styled(Link)<{ borderColor?: string, color?: string, backgrou
 `
 
 
+
+
 const IndexPage = () => {
   const isMobile = useMedia('(max-width: 768px)');
   const isWider = useMedia('(min-width: 1920px)')
 
+  
+
+  const [scroll, setScroll] = useState(0);
+  const onScroll = useCallback(() => setScroll(Math.round(window.scrollY)), []);
+  useEffect(() => {
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
+  var someElement= document.getElementById("navi");
+  console.log( someElement )
+
+  if(someElement == null){
+
+  }else{
+    if(document.documentElement.scrollTop>0){
+    
+      someElement.classList.add('blackNav');
+    }else{
+      someElement.classList.remove('blackNav');
+    }
+  }
+ 
+  // useEffect(() => window.scrollTo(0, 1000), []);
+  
+  // useEffect(() => setTimeout(() => window.scrollTo(0, 1000), 2000), []);
+  
+
+  
   return (
     <Layout>
       { isMobile ? <Navbar /> : null }

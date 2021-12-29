@@ -1,12 +1,12 @@
-export const GITHUB_LINK = 'https://github.com'
+export const GITHUB_LINK = 'https://github.com/versegame'
 
-export const TELEGRAM_LINK = 'https://t.me'
+export const TELEGRAM_LINK = 'https://t.me/convictednft'
 
-export const TWITTER_LINK = 'https://twitter.com'
+export const TWITTER_LINK = 'https://twitter.com/convictednft'
 
-export const FACEBOOK_LINK = 'https://facebook.com'
+export const FACEBOOK_LINK = 'https://www.facebook.com/convictednft'
 
-export const DISCORD_LINK = 'https://discord.com'
+export const DISCORD_LINK = 'https://discord.gg/convicted'
 
 export const SUPPORT_EMAIL = 'support@convicted.app'
 

@@ -40,12 +40,19 @@ const LogoContainer = styled.div`
   align-items: center;
 `
 
+const Navbarstyle = styled(Navbar)`
+ position: fixed !important;
+ padding: 0 4rem;
+ width: 100%;
+`
+
 function NavbarMenu() {
   const isWide = useMedia('(min-width: 769px)');
   const isMobile = useMedia('(max-width: 768px)');
   return (
-    <Navbar
+    <Navbarstyle 
       collapseOnSelect
+      id={"navi"}
       style={{
         alignItems: isMobile ? 'center' : 'flex-start',
         paddingTop: 0,
@@ -78,7 +85,7 @@ function NavbarMenu() {
           </LinkItem>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>
+    </Navbarstyle>
   )
 }
 
