@@ -340,7 +340,7 @@ const IndexPage = () => {
       </Background>
       <Container>
         <ContentContainer>
-          <FeatureBlock style={{ paddingTop: '2rem', marginTop: isWider ? 0 : '6.375rem' }}>
+          <FeatureBlock style={{ paddingTop: '2rem', marginTop: 0 }}>
             <FeatureElement padding="0 5rem 0 0" style={{ justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1rem' }}>
                 <FeatureTitle>Convicted</FeatureTitle>
