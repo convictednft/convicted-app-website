@@ -9,21 +9,11 @@ import CharImage from '../images/char1.png'
 // @ts-ignore
 import WeaponsImage from '../images/weapons.png'
 // @ts-ignore
-import KnucklesImage from '../images/knuckles.png'
+import LogoImage from '../images/social/logo.svg'
 // @ts-ignore
-import PrisonImage from '../images/prison.png'
+import SmokeImage from '../images/smoke.svg'
 // @ts-ignore
-import StampImage from '../images/stamp.png'
-// @ts-ignore
-import BagImage from '../images/bag.png'
-// @ts-ignore
-import KitchenImage from '../images/kitchen.png'
-// @ts-ignore
-import TattooImage from '../images/web.png'
-// @ts-ignore
-import LogoImage from '../images/logo.png'
-// @ts-ignore
-import SchemaImage from '../images/schema.png'
+import SchemaImage from '../images/schematic.svg'
 // @ts-ignore
 import CurrencyImage from '../images/currency.png'
 import AvailableFeatureItem from "../components/AvailableFeatureItem"
@@ -129,7 +119,7 @@ const Weapons = styled.div`
   background-image: url(${WeaponsImage});
   background-repeat: no-repeat;
   background-color: black;
-  background-position: center;
+  background-position: left;
   height: 100%;
   width: 100%;
   background-size: contain;
@@ -159,7 +149,7 @@ const Currency = styled.div`
   background-image: url(${CurrencyImage});
   background-repeat: no-repeat;
   background-color: black;
-  background-position: center;
+  background-position: left;
   height: 100%;
   width: 100%;
   background-size: contain;
@@ -295,13 +285,27 @@ const LinkButton = styled(Link)<{ borderColor?: string, color?: string, backgrou
   }
 `
 
+const SmokeContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url(${SmokeImage});
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+`
+
 const IndexPage = () => {
   const isMobile = useMedia('(max-width: 768px)');
 
   return (
     <Layout>
       { isMobile ? <Navbar /> : null }
-      <div
+      <SmokeContainer />
+      {/* Lower quality but faster loading background */}
+      {/* <div
         style={{ display: 'grid' }}
       >
         <StaticImage
@@ -319,7 +323,7 @@ const IndexPage = () => {
           alt=""
           // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
           src="../images/main_bg.png"
-          objectFit={isMobile ? 'cover' : 'fill'}
+          objectFit={isMobile ? 'cover' : 'contain'}
         />
         <div
           style={{
@@ -332,10 +336,10 @@ const IndexPage = () => {
         >
           { !isMobile ? <Navbar /> : null }
         </div>
-      </div>
-      {/* <Background>
+      </div> */}
+      <Background>
         { !isMobile ? <Navbar /> : null }
-      </Background> */}
+      </Background>
       <Container>
         <ContentContainer>
           <FeatureBlock style={{ paddingTop: '2rem', marginTop: '6.375rem' }}>

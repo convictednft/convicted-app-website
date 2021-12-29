@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useMedia } from 'react-use'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 // @ts-ignore
-import Logo from '../images/logo.png'
+import Logo from '../images/social/logo.svg'
 
 const HighlightLinkItem = styled.div<{ color?: string, bordered?: boolean, backgroundColor?: string }>`
   background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
@@ -34,8 +34,9 @@ const LinkItem = styled(Link)`
 `
 
 const LogoContainer = styled.div`
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
+  justify-content: center;
   align-items: center;
 `
 
@@ -43,21 +44,21 @@ function NavbarMenu() {
   const isWide = useMedia('(min-width: 769px)');
   const isMobile = useMedia('(max-width: 768px)');
   return (
-    <Navbar
-      collapseOnSelect
-      style={{
-        alignItems: isMobile ? 'center' : 'flex-start',
-        paddingTop: 0,
-        backgroundColor: isMobile ? 'black' : 'transparent',
-      }}
-      expand="sm"
-      variant="dark"
-      sticky="top"
-    >
-      <Container>
+    <Container>
+      <Navbar
+        collapseOnSelect
+        style={{
+          alignItems: isMobile ? 'center' : 'flex-start',
+          paddingTop: 0,
+          backgroundColor: isMobile ? 'black' : 'transparent',
+        }}
+        expand="sm"
+        variant="dark"
+        sticky="top"
+      >
         <Navbar.Brand>
           <LogoContainer>
-            <img src={Logo} style={{ width: '2rem', height: '2rem' }} />
+            <img src={Logo} style={{ height: '2.25rem' }} />
           </LogoContainer>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -78,8 +79,8 @@ function NavbarMenu() {
             </LinkItem>
           </Nav>
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      </Navbar>
+    </Container>
   )
 }
 

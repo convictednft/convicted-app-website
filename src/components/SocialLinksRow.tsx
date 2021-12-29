@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 // @ts-ignore
-import DiscordImage from '../images/social/discord.png'
+import DiscordImage from '../images/social/discord.svg'
 // @ts-ignore
-import TelegramImage from '../images/social/telegram.png'
+import TelegramImage from '../images/social/telegram.svg'
 // @ts-ignore
-import TwitterImage from '../images/social/twitter.png'
+import TwitterImage from '../images/social/twitter.svg'
 // @ts-ignore
-import GithubImage from '../images/social/github.png'
+import GithubImage from '../images/social/github.svg'
 // @ts-ignore
-import FacebookImage from '../images/social/facebook.png'
+import FacebookImage from '../images/social/facebook.svg'
 import { DISCORD_LINK, FACEBOOK_LINK, GITHUB_LINK, TELEGRAM_LINK, TWITTER_LINK } from '../constants'
 
 const Container = styled.div`

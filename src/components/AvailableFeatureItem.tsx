@@ -39,6 +39,7 @@ const AvailableFeatureDescription = styled.div`
   line-height: 1.5rem;
   margin-top: 0.75rem;
   color: #C2C2C2;
+  text-align: center;
 `
 
 type AvailableFeatureItemProps = {
