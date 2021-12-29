@@ -4,6 +4,9 @@ module.exports = {
     title: "convicted",
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-typescript`,
       options: {

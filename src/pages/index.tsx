@@ -32,6 +32,7 @@ import { Link } from "gatsby"
 import SocialLinksRow from "../components/SocialLinksRow"
 import { INVESTMENTS_EMAIL, PARTNERSHIPS_EMAIL, SUPPORT_EMAIL } from "../constants"
 import { useMedia } from "react-use"
+import { StaticImage } from "gatsby-plugin-image"
 
 const AvailableFeatureContainer = styled.div`
   display: flex;
@@ -300,9 +301,41 @@ const IndexPage = () => {
   return (
     <Layout>
       { isMobile ? <Navbar /> : null }
-      <Background>
+      <div
+        style={{ display: 'grid' }}
+      >
+        <StaticImage
+          style={{
+            gridArea: "1/1",
+            // You can set a maximum height for the image, if you wish.
+            // maxHeight: 600,
+            height: isMobile ? '40vh' : '100vh',
+          }}
+          layout="fullWidth"
+          placeholder="blurred"
+          // You can optionally force an aspect ratio for the generated image
+          aspectRatio={16 / 9}
+          // This is a presentational image, so the alt should be an empty string
+          alt=""
+          // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
+          src="../images/main_bg.png"
+          objectFit={isMobile ? 'cover' : 'fill'}
+        />
+        <div
+          style={{
+            // By using the same grid area for both, they are stacked on top of each other
+            gridArea: "1/1",
+            position: "relative",
+            // This centers the other elements inside the hero component
+            display: "grid",
+          }}
+        >
+          { !isMobile ? <Navbar /> : null }
+        </div>
+      </div>
+      {/* <Background>
         { !isMobile ? <Navbar /> : null }
-      </Background>
+      </Background> */}
       <Container>
         <ContentContainer>
           <FeatureBlock style={{ paddingTop: '2rem', marginTop: '6.375rem' }}>
@@ -403,45 +436,82 @@ const IndexPage = () => {
           <FeatureTitle style={{ textAlign: 'center', marginTop: '10.625rem', marginBottom: '3.25rem' }}>Features available in the game</FeatureTitle>
           <AvailableFeatureContainer>
             <AvailableFeatureItem
-              src={KnucklesImage}
+              image={
+                <StaticImage
+                  placeholder="blurred"
+                  alt="Weapon"
+                  src="../images/knuckles.png"
+                  style={{ height: "14.125rem", objectFit: "contain" }}
+                />
+              }
               title="Weapon"
-              imageHeight="14.125rem"
               titleMargin="3.125rem"
-              description="Make single or massive attacks against prison bosses."
+              description="Go through prisons one by one and take over the prison business."
             />
+
             <AvailableFeatureItem
-              src={PrisonImage}
+              image={
+                <StaticImage
+                  placeholder="blurred"
+                  alt="Prison"
+                  src="../images/prison.png"
+                  style={{ height: "12.375rem", objectFit: "contain" }}
+                />
+              }
               title="Prison"
-              imageHeight="12.375rem"
               titleMargin="3.125rem"
               description="Go through prisons one by one and take over the prison business."
             />
             <AvailableFeatureItem
-              src={KitchenImage}
-              imageHeight="15.375rem"
+              image={
+                <StaticImage
+                  placeholder="blurred"
+                  alt="Kitchen"
+                  src="../images/kitchen.png"
+                  style={{ height: "15.375rem", objectFit: "contain" }}
+                />
+              }
               title="Kitchen"
               titleMargin="2.75rem"
               description="If you are a good cook, then send to the kitchen to get “Food”."
             />
             <AvailableFeatureItem
-              src={BagImage}
+              image={
+                <StaticImage
+                  placeholder="blurred"
+                  alt="Bag"
+                  src="../images/bag.png"
+                  style={{ height: "14rem", objectFit: "contain" }}
+                />
+              }
               title="Bag"
               titleMargin="2.25rem"
-              imageHeight="14rem"
               description="Improve the items in your bag at the expense of “Level” and “Authority”."
             />
             <AvailableFeatureItem
-              src={TattooImage}
+              image={
+                <StaticImage
+                  placeholder="blurred"
+                  alt="Tattoo"
+                  src="../images/web.png"
+                  style={{ height: "18.5rem", objectFit: "contain" }}
+                />
+              }
               title="Tattoo"
               titleMargin="0"
-              imageHeight="18.5rem"
               description={`Get tattoos to gain the "Authority" in the prison and pump your character.`}
             />
             <AvailableFeatureItem
-              src={StampImage}
+              image={
+                <StaticImage
+                  placeholder="blurred"
+                  alt="Stashes"
+                  src="../images/stamp.png"
+                  style={{ width: "13.625rem", objectFit: "contain" }}
+                />
+              }
               titleMargin="1.625rem"
               title="Stashes"
-              imageWidth="13.625rem"
               description={`Collect various stashes and trade their collections for resources.`}
             />
           </AvailableFeatureContainer>

@@ -44,16 +44,14 @@ const AvailableFeatureDescription = styled.div`
 type AvailableFeatureItemProps = {
   title: string
   description: string
-  src: any
   titleMargin?: string
-  imageHeight?: string
-  imageWidth?: string
+  image: React.ReactNode
 }
 
 const AvailableFeatureItem = (props: AvailableFeatureItemProps) => {
   return (
     <AvailableFeature>
-      <img src={props.src} style={{ width: props.imageWidth, height: props.imageHeight }} />
+      {props.image}
       <AvailableFeatureTitle style={{ marginTop: props.titleMargin }}>{props.title}</AvailableFeatureTitle>
       <AvailableFeatureDescription>{props.description}</AvailableFeatureDescription>
     </AvailableFeature>

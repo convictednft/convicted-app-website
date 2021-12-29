@@ -46,7 +46,7 @@ const RoadmapItem = (props: Props) => {
       <RoadmapTitle>{props.title}</RoadmapTitle>
       {
         props.items.map((item) => (
-          <RoadmapItemText>{item}</RoadmapItemText>
+          <RoadmapItemText key={item}>{item}</RoadmapItemText>
         ))
       }
     </Container>
