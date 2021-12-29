@@ -293,7 +293,7 @@ const SmokeContainer = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
+  height: 100vh;
   background-image: url(${SmokeImage});
   background-size: contain;
   background-position: bottom;
@@ -524,7 +524,7 @@ const IndexPage = () => {
           </AvailableFeatureContainer>
           <FeatureTitle style={{ textAlign: 'center', marginTop: '10rem' }}>Roadmap</FeatureTitle>
         </ContentContainer>
-        <ContentContainer>
+        <ContentContainer wider>
           <RoadmapContainer>
             <RoadmapItem
               title="Stage 1 (End of Q4 2021)"

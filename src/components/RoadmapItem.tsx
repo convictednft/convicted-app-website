@@ -26,8 +26,9 @@ const RoadmapItemText = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 32%;
-  padding: 0 1rem;
+  width: 21.875rem;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  margin: 1.5625rem 1rem;
 
   @media(max-width: 768px) {
     width: 100%;

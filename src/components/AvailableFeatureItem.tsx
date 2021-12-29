@@ -8,9 +8,9 @@ const AvailableFeature = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   width: 21.875rem;
   border-radius: 4px;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   margin: 1.5625rem 1rem;
   max-height: 27.6825rem;
   @media(max-width: 768px) {
