@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import { useMedia } from 'react-use'
-import { Nav, Navbar, Container } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 // @ts-ignore
 import Logo from '../images/social/logo.svg'
 
@@ -44,43 +44,41 @@ function NavbarMenu() {
   const isWide = useMedia('(min-width: 769px)');
   const isMobile = useMedia('(max-width: 768px)');
   return (
-    <Container>
-      <Navbar
-        collapseOnSelect
-        style={{
-          alignItems: isMobile ? 'center' : 'flex-start',
-          paddingTop: 0,
-          backgroundColor: isMobile ? 'black' : 'transparent',
-        }}
-        expand="sm"
-        variant="dark"
-        sticky="top"
-      >
-        <Navbar.Brand>
-          <LogoContainer>
-            <img src={Logo} style={{ height: '2.25rem' }} />
-          </LogoContainer>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="align-items-center order-md-1">
-          <Nav className="me-auto">
-            <LinkItem to="/about">About</LinkItem>
-            <LinkItem to="/roadmap">Roadmap</LinkItem>
-            <LinkItem to="/whitepaper">Whitepaper</LinkItem>
-            <LinkItem to="/staking">Staking</LinkItem>
-            <LinkItem to="/liquidity">Liquidity</LinkItem>
-          </Nav>
-          <Nav>
-            <LinkItem to="/marketplace">
-              <HighlightLinkItem bordered color="#B6B6B6" backgroundColor="rgba(47, 47, 47, 0.6)">Marketplace</HighlightLinkItem>
-            </LinkItem>
-            <LinkItem to="/earn">
-              <HighlightLinkItem bordered color="#FC6805" backgroundColor="rgba(230, 74, 38, 0.3)">Play and earn</HighlightLinkItem>
-            </LinkItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </Container>
+    <Navbar
+      collapseOnSelect
+      style={{
+        alignItems: isMobile ? 'center' : 'flex-start',
+        paddingTop: 0,
+        backgroundColor: isMobile ? 'black' : 'transparent',
+      }}
+      expand="sm"
+      variant="dark"
+      sticky="top"
+    >
+      <Navbar.Brand>
+        <LogoContainer>
+          <img src={Logo} style={{ height: '2.25rem' }} />
+        </LogoContainer>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav" className="align-items-center order-md-1">
+        <Nav className="me-auto">
+          <LinkItem to="/about">About</LinkItem>
+          <LinkItem to="/roadmap">Roadmap</LinkItem>
+          <LinkItem to="/whitepaper">Whitepaper</LinkItem>
+          <LinkItem to="/staking">Staking</LinkItem>
+          <LinkItem to="/liquidity">Liquidity</LinkItem>
+        </Nav>
+        <Nav>
+          <LinkItem to="/marketplace">
+            <HighlightLinkItem bordered color="#B6B6B6" backgroundColor="rgba(47, 47, 47, 0.6)">Marketplace</HighlightLinkItem>
+          </LinkItem>
+          <LinkItem to="/earn">
+            <HighlightLinkItem bordered color="#FC6805" backgroundColor="rgba(230, 74, 38, 0.3)">Play and earn</HighlightLinkItem>
+          </LinkItem>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 

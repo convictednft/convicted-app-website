@@ -50,11 +50,14 @@ const Background = styled.div`
   background-size: contain;
   background-position-x: center;
   width: 100%;
+  padding: 0 2rem;
   @media(max-width: 768px) {
     height: 40vh;
+    padding: 0;
     background-size: cover;
   }
   @media(min-width: 1920px) {
+    padding: 0 4rem;
     min-height: 130vh;
   }
 `
@@ -226,6 +229,10 @@ const FooterLink = styled(Link)<{capitalize?: boolean}>`
     text-decoration: none;
     color: #B0B0B0;
   }
+  &:hover {
+    text-decoration: none;
+    color: #B0B0B0;
+  }
 
   @media(max-width: 768px) {
     text-align: center;
@@ -288,17 +295,6 @@ const LinkButton = styled(Link)<{ borderColor?: string, color?: string, backgrou
   }
 `
 
-const SmokeContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  background-image: url(${SmokeImage});
-  background-size: contain;
-  background-position: bottom;
-  background-repeat: no-repeat;
-`
 
 const IndexPage = () => {
   const isMobile = useMedia('(max-width: 768px)');
@@ -307,7 +303,6 @@ const IndexPage = () => {
   return (
     <Layout>
       { isMobile ? <Navbar /> : null }
-      <SmokeContainer />
       {/* Lower quality but faster loading background */}
       {/* <div
         style={{ display: 'grid' }}
@@ -348,7 +343,7 @@ const IndexPage = () => {
         <ContentContainer>
           <FeatureBlock style={{ paddingTop: '2rem', marginTop: isWider ? 0 : '6.375rem' }}>
             <FeatureElement padding="0 5rem 0 0" style={{ justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1rem' }}>
                 <FeatureTitle>Convicted</FeatureTitle>
                 <p>You go to prison as an ordinary kid. In order to survive in these difficult conditions, you have to fight for the right to life. Fight with other prisoners and if you win you get a well-deserved reward - a cigarette. If you are strong in cooking, go to the kitchen and cook food. Start your journey of roofing business, conquering one prison after another.</p>
                 <p>But not all victories are easy, some bosses can't be defeated alone. You'll have to assemble your own team or join someone else's team to kill the most powerful boss. Do not miss the opportunity to keep your physical form at an appropriate level. A convict without a tattoo is not a convict. So put a tattoo on your body - they will increase your credibility among the prisoners.</p>
