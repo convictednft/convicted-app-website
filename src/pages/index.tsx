@@ -302,6 +302,7 @@ const SmokeContainer = styled.div`
 
 const IndexPage = () => {
   const isMobile = useMedia('(max-width: 768px)');
+  const isWider = useMedia('(min-width: 1920px)')
 
   return (
     <Layout>
@@ -345,7 +346,7 @@ const IndexPage = () => {
       </Background>
       <Container>
         <ContentContainer>
-          <FeatureBlock style={{ paddingTop: '2rem', marginTop: '6.375rem' }}>
+          <FeatureBlock style={{ paddingTop: '2rem', marginTop: isWider ? 0 : '6.375rem' }}>
             <FeatureElement padding="0 5rem 0 0" style={{ justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <FeatureTitle>Convicted</FeatureTitle>
