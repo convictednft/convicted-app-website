@@ -312,7 +312,7 @@ const IndexPage = () => {
             height: isMobile ? '40vh' : '100vh',
           }}
           layout="fullWidth"
-          placeholder="blurred"
+          placeholder="dominantColor"
           // You can optionally force an aspect ratio for the generated image
           aspectRatio={16 / 9}
           // This is a presentational image, so the alt should be an empty string
