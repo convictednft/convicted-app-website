@@ -623,7 +623,7 @@ const IndexPage = () => {
           <FooterContainer>
             <FooterColumn>
               <Logo src={LogoImage} />
-              <Copyright>©2021 by Metagame LLC.</Copyright>
+              <Copyright>©2021 by Versegame LLC.</Copyright>
             </FooterColumn>
             <FooterColumn>
               <FooterTitle>Convicted</FooterTitle>
