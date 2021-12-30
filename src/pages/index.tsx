@@ -331,6 +331,18 @@ const IndexPage = () => {
         someElement.classList.remove('blackNav');
       }
     }
+    }else{
+      const someElement= document.getElementById("navi");
+      if(someElement == null){
+  
+      }else{
+        if(scroll>0){
+        
+          someElement.classList.add('blackNav');
+        }else{
+          someElement.classList.remove('blackNav');
+        }
+      }
     }
  
 
@@ -487,7 +499,7 @@ const IndexPage = () => {
                 Crime - Rubles (CRUB)
               </p>
 
-              <p>In our NFT game, this is like a pass to the game. Although he/she has basic production parameters, which play a large role, but ultimately the player can develop through active play and get more. In general, we encourage old and active players.</p>
+              <p>Although he has basic production parameters, which play a large role, but ultimately the player can develop through active play and get more. In general, we encourage old and active players.</p>
 
 
             </FeatureElement>
