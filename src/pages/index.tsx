@@ -296,7 +296,13 @@ const LinkButton = styled(Link)<{ borderColor?: string, color?: string, backgrou
     color: ${({ color }) => color};
   }
 `
+const mm = styled.div`
+ background-color: #0E0E0E !important;
 
+-webkit-transition: background-color 600ms linear;
+-ms-transition: background-color 600ms linear;
+transition: background-color 600ms linear;
+` 
 
 
 
@@ -304,77 +310,59 @@ const IndexPage = () => {
   const isMobile = useMedia('(max-width: 768px)');
   const isWider = useMedia('(min-width: 1920px)')
 
- 
   const [scroll, setScroll] = useState(0);
   const onScroll = useCallback(() => setScroll(Math.round(window.scrollY)), []);
-
-
   useEffect(() => {
-
+  
     onScroll();
     window.addEventListener("scroll", onScroll);
+    const someElement= document.getElementById("navi");
+
+
+    
+
     return () => window.removeEventListener("scroll", onScroll);
   }, [onScroll]);
+  useEffect(() => {
+    // Обновляем заголовок документа с помощью API браузера
+ 
+   const someElement= document.getElementById("navi");
+   console.log(scroll)
+   if(scroll >0){
+    // document.getElementById("navi").style.backgroundColor= #0E0E0E
+    someElement.classList.add('blackNav');
 
+   }else{
+    // document.getElementById("navi").style.backgroundColor= 'transparent'
+    someElement.classList.remove('blackNav');
+   }
 
+  });
 
-    console.log(scroll)
-    if(scroll>0){
-      const someElement= document.getElementById("navi");
-     console.log(someElement)
-     if(someElement == null){
+// function Menu(props) {
   
-    }else{
-      if(scroll>0){
-      
-        someElement.classList.add('blackNav');
-      }else{
-        someElement.classList.remove('blackNav');
-      }
-    }
-    }else{
-      const someElement= document.getElementById("navi");
-      if(someElement == null){
   
-      }else{
-        if(scroll>0){
-        
-          someElement.classList.add('blackNav');
-        }else{
-          someElement.classList.remove('blackNav');
-        }
-      }
-    }
+//   React.useEffect(() => {
+//     const someElement= document.getElementById("navi");
+//     console.log(scroll)
+//     if(scroll>0){
+//       someElement.classList.add('blackNav');
+     
+//       }else{
+
+//       }
  
 
-    React.useEffect(() => {
-      const someElement= document.getElementById("navi");
-     
-     
-      if(someElement == null){
-  
-      }else{
-        if(scroll>0){
-        
-          someElement.classList.add('blackNav');
-        }else{
-          someElement.classList.remove('blackNav');
-        }
-      }
-  
-    }, [])
+//   }, [])
 
- 
-  // useEffect(() => window.scrollTo(0, 1000), []);
-  
-  // useEffect(() => setTimeout(() => window.scrollTo(0, 1000), 2000), []);
-  
-
+// }
+    
   
   return (
     <Layout>
       { isMobile ? <Navbar /> : null }
-      {/* Lower quality but faster loading background */}
+
+ {/* Lower quality but faster loading background */}
       {/* <div
         style={{ display: 'grid' }}
       >
@@ -407,6 +395,7 @@ const IndexPage = () => {
           { !isMobile ? <Navbar /> : null }
         </div>
       </div> */}
+    
       <Background>
         { !isMobile ? <Navbar /> : null }
       </Background>
@@ -433,6 +422,8 @@ const IndexPage = () => {
               <Char />
             </FeatureElement>
           </FeatureBlock>
+
+
           <FeatureBlock style={{ marginTop: '7.75rem' }}>
             <FeatureElement
               style={{
