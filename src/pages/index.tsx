@@ -303,28 +303,54 @@ const IndexPage = () => {
   const isMobile = useMedia('(max-width: 768px)');
   const isWider = useMedia('(min-width: 1920px)')
 
-  
-
+ 
   const [scroll, setScroll] = useState(0);
   const onScroll = useCallback(() => setScroll(Math.round(window.scrollY)), []);
+
+
   useEffect(() => {
+
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [onScroll]);
-  var someElement= document.getElementById("navi");
-  console.log( someElement )
 
-  if(someElement == null){
 
-  }else{
-    if(document.documentElement.scrollTop>0){
-    
-      someElement.classList.add('blackNav');
+
+    console.log(scroll)
+    if(scroll>0){
+      const someElement= document.getElementById("navi");
+     console.log(someElement)
+     if(someElement == null){
+  
     }else{
-      someElement.classList.remove('blackNav');
+      if(scroll>0){
+      
+        someElement.classList.add('blackNav');
+      }else{
+        someElement.classList.remove('blackNav');
+      }
     }
-  }
+    }
+ 
+
+    React.useEffect(() => {
+      const someElement= document.getElementById("navi");
+     
+     
+      if(someElement == null){
+  
+      }else{
+        if(scroll>0){
+        
+          someElement.classList.add('blackNav');
+        }else{
+          someElement.classList.remove('blackNav');
+        }
+      }
+  
+    }, [])
+
  
   // useEffect(() => window.scrollTo(0, 1000), []);
   
